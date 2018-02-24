@@ -1,0 +1,5 @@
+=== Install oc client : 
+
+https://github.com/openshift/origin/releases/download/v3.7.1/openshift-origin-client-tools-v3.7.1-ab0f056-linux-64bit.tar.gz
+
+mv openshift-origin-client-tools-v3.7.1/oc /usr/local/bin/
