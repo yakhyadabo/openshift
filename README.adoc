@@ -1,5 +1,35 @@
+== Openshift 
+
 === Install oc client : 
 
 https://github.com/openshift/origin/releases/download/v3.7.1/openshift-origin-client-tools-v3.7.1-ab0f056-linux-64bit.tar.gz
 
 mv openshift-origin-client-tools-v3.7.1/oc /usr/local/bin/
+
+
+
+=== Basic commands 
+
+[source,shell]
+----
+$ oc login url -u username
+----
+
+.Example login
+[source,shell]
+----
+$ oc login https://console.starter-us-west-2.openshift.com -u yakhyadabo
+----
+
+
+View Config
+[source,shell]
+----
+$ oc config view
+----
+
+Create new project
+[source,shell]
+----
+$ oc new-project oc-test-wordpress --display-name="Wordpress sample" --description="This is an example of wordpress project to on OpenShift v3"
+----
