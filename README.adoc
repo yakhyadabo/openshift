@@ -33,3 +33,8 @@ Create new project
 ----
 $ oc new-project oc-test-wordpress --display-name="Wordpress sample" --description="This is an example of wordpress project to on OpenShift v3"
 ----
+
+
+=== Wordpress Mysql
+Sample from : https://github.com/openshift/origin/tree/master/examples/wordpress
+
