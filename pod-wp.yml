@@ -20,7 +20,7 @@ spec:
           # expands to mysql.<namespace>.svc.cluster.local  - where <namespace> is the current namespace
           value: mysql
       ports: 
-        - containerPort: 8080
+        - containerPort: 80
           name: wordpress
       volumeMounts:
         - name: wordpress-persistent-storage
