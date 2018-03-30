@@ -38,3 +38,10 @@ $ oc new-project oc-test-wordpress --display-name="Wordpress sample" --descripti
 === Wordpress Mysql
 Sample from : https://github.com/openshift/origin/tree/master/examples/wordpress
 
+
+=== Adding persistent storage
+
+https://developers.redhat.com/blog/2017/04/05/adding-persistent-storage-to-minishift-cdk-3-in-minutes/
+
+=== Creating route
+
