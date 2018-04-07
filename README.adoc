@@ -1,4 +1,4 @@
-== Openshift 
+== Openshift with Minishift
 
 === Install oc client : 
 
@@ -6,9 +6,27 @@ https://github.com/openshift/origin/releases/download/v3.7.1/openshift-origin-cl
 
 mv openshift-origin-client-tools-v3.7.1/oc /usr/local/bin/
 
-
+=== Install Minishift 
 
 === Basic commands 
+
+Start Minishft 
+[source,shell]
+----
+minishift start --vm-driver=virtualbox 
+----
+
+Stop Minishift 
+[source,shell]
+----
+minishift stop 
+----
+
+Delete Minishift 
+[source,shell]
+----
+minishift delete
+----
 
 [source,shell]
 ----
@@ -18,9 +36,9 @@ $ oc login url -u username
 .Example login
 [source,shell]
 ----
-$ oc login https://console.starter-us-west-2.openshift.com -u yakhyadabo
+$ oc login url -u developer
+$ oc login -u system:admin
 ----
-
 
 View Config
 [source,shell]
@@ -36,12 +54,32 @@ $ oc new-project oc-test-wordpress --display-name="Wordpress sample" --descripti
 
 
 === Wordpress Mysql
-Sample from : https://github.com/openshift/origin/tree/master/examples/wordpress
+
+==== Mysql
+oc create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
+
+
+oc apply -f mysql/deployment.yml
+
+==== Wordpress
+
+Allow Wordpress to bind to port 80 by editing the restricted security context restraint. Change "runAsUser" from MustRunAsRange to RunAsAny.
+
+oc patch scc restricted -p '{"runAsUser":{"type":"RunAsAny"}}'
+
+
+oc apply -f wordpress/deployment.yml
+
+oc expose service wordpress
 
 
 === Adding persistent storage
 
 https://developers.redhat.com/blog/2017/04/05/adding-persistent-storage-to-minishift-cdk-3-in-minutes/
 
-=== Creating route
+=== Creating routes
+
+See : https://docs.openshift.com/container-platform/3.7/install_config/router/default_haproxy_router.html
+See : https://docs.openshift.com/enterprise/3.0/install_config/install/deploy_router.html#creating-the-router-service-account
+
 
